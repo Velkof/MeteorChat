@@ -1,11 +1,19 @@
 <template name="dashboard">
-    <div id="content">
-        <div class="container">
-            <div class="row col-xs-12">
+
+    <div id="dashboard">
+        <div id="content">
+            <div class="container">
                 <main>
-                    DASHBOARD
+
+                    <div class="row col-xs-12">
+                        {{#each users}}
+                            {{> user}}
+                        {{/each}}
+                    </div>
                 </main>
+
             </div>
         </div>
     </div>
+
 </template>

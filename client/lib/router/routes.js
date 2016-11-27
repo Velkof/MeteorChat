@@ -1,6 +1,7 @@
 var publicRoutes = FlowRouter.group({
     prefix: '/',
     name: 'public',
+    triggersEnter: [redirectIfLoggedIn],
 });
 
 var privateRoutes = FlowRouter.group({
@@ -13,9 +14,9 @@ publicRoutes.route('/', {
     name: "home",
     action: function() {
         BlazeLayout.render('appBody', {
-            footer: "footer",
-            main: "home",
             nav: "nav",
+            main: "home",
+            footer: "footer",
         });
     }
 });
@@ -24,23 +25,24 @@ privateRoutes.route('/', {
     name:"dashboard",
     action: function() {
         BlazeLayout.render('appBody', {
-            footer: "footer",
-            main: "dashboard",
             nav: "nav",
+            main: "dashboard",
+            footer: "footer",
         });
     }
 });
 
-privateRoutes.route('/test', {
-    name:"test",
+privateRoutes.route('/:id', {
+    name: 'chat',
     action: function() {
-        BlazeLayout.render('appBody', {
-            footer: "footer",
-            main: "test",
+        BlazeLayout.render("appBody", {
             nav: "nav",
+            main: "chat",
+            footer: "footer",
         });
     }
 });
+
 
 
 function checkLoggedIn (ctx, redirect) {
@@ -49,8 +51,8 @@ function checkLoggedIn (ctx, redirect) {
     }
 }
 
-// function redirectIfLoggedIn (ctx, redirect) {
-//     if (Meteor.userId()) {
-//         redirect('/dashboard')
-//     }
-// }
+function redirectIfLoggedIn (ctx, redirect) {
+    if (Meteor.userId()) {
+        redirect('/dashboard')
+    }
+}

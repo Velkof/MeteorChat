@@ -1,12 +1,85 @@
-/*body {*/
-    /*width: 50%;*/
-    /*margin: 0 auto;*/
-    /*border: 1px solid red;*/
-/*}*/
 
-#footer {
-    position: absolute;
-    bottom: 20px;
+
+.user {
+    font-size: 1.2em;
+    background-color: #f9f9f9;
+    padding: 1rem;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #e7e7e7;
+}
+
+.footer {
+    position: fixed;
     width: 100%;
+    bottom: 0px;
     height: 70px;
+    z-index: 99;
+    background-color: white;
+}
+
+.pushDownBecauseOfNav{
+    height: 55px;
+    background-color: white;
+}
+
+.pushUpBecauseOfFooterAndSearch{
+    height: 255px;
+    background-color: white;
+}
+
+
+.messageInput, .messageBtn {
+    /*-moz-min-width: 80%;*/
+    /*-ms-min-width: 80%;*/
+    /*-o-min-width: 80%;*/
+    /*-webkit-min-width: 80%;*/
+    /*min-width: 80%;*/
+    min-width: 100%;
+    height: 50px;
+    font-size: 1.8rem;
+
+}
+.messageBtn{
+    margin-left: 10px;
+
+}
+
+#chatContainer{
+}
+.messageForm {
+    position: fixed;
+    bottom: 70px;
+    width: 100%;
+    padding: 10px;
+    z-index: 99;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.msgReceived, .msgSent {
+    padding: 5px;
+    width: 80%;
+    border-radius: 5px;
+}
+
+.msgReceived {
+    float: left;
+    background-color: #f2f6fc;
+}
+
+.msgSent{
+    float: right;
+    background-color: #f9f9f9;
+}
+
+.seenStatus {
+    float: right;
+}
+.msgInfo {
+    font-size: .7em;
+}
+
+.msgWrapper{
+    margin-top: 10px;
 }

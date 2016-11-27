@@ -1,0 +1,56 @@
+<template name="chat">
+    <div id="content">
+
+        <div id="chatContainer" class="container">
+
+                <main>
+                    <div class="col-xs-12 ">
+
+                    <div class="">
+                        You're now chatting with {{chatBuddy.emails.[0].address}}.
+                    </div>
+
+
+
+                        <div class="messageList">
+                            <!--{{#each messages}}-->
+                                <!--{{> messageReceived}}-->
+                            <!--{{/each}}-->
+
+                                {{#each messages}}
+                                    {{#if equals userId currentUser._id}}
+
+                                        {{> messageSent}}
+                                    {{else}}
+                                        {{> messageReceived}}
+                                    {{/if}}
+
+                                {{/each}}
+
+                        </div>
+                    </div>
+
+                </main>
+
+            </div>
+        </div>
+    <form  id="$scrollingDiv" class="messageForm form-inline">
+        <div class="container">
+            <div class="col-xs-9">
+                <div class="row">
+                    <input type="text" name="message" class="form-control messageInput " placeholder="Write a message..."/>
+                </div>
+            </div>
+            <div class="col-xs-3 ">
+                <div class="row ">
+
+                    <input type="submit" class="form-control messageBtn " value="Send"/>
+                </div>
+            </div>
+        </div>
+
+    </form>
+    <div class="pushUpBecauseOfFooterAndSearch">
+
+    </div>
+</template>
