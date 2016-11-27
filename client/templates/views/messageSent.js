@@ -1,0 +1,4 @@
+// Template.messageSent.onRendered(function () {
+//
+// });
+//

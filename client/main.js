@@ -1,9 +1,16 @@
-$().ready(function() {
-    var $scrollingDiv = $("#scrollingDiv");
 
-    $(window).scroll(function(){
-        $scrollingDiv
-            .stop()
-            .animate({"marginTop": ($(window).scrollTop() + 30) + "px"}, "slow" );
-    });
+$("#chatContainer").ready(function() {
+    chatScrollDown();
+});
+
+$(".userLink").on("click", function(){
+    chatScrollDown();
+});
+
+function chatScrollDown(){
+    $("html, body").animate({ scrollTop: $(document).height() }, 1000);
+};
+
+$(".messageForm").on("submit", function () {
+    chatScrollDown();
 });

@@ -1,5 +1,4 @@
 <template name="chat">
-    <div id="content">
 
         <div id="chatContainer" class="container">
 
@@ -12,7 +11,7 @@
 
 
 
-                        <div class="messageList">
+                        <div id="msgList" class="messageList">
                             <!--{{#each messages}}-->
                                 <!--{{> messageReceived}}-->
                             <!--{{/each}}-->
@@ -33,7 +32,6 @@
                 </main>
 
             </div>
-        </div>
     <form  id="$scrollingDiv" class="messageForm form-inline">
         <div class="container">
             <div class="col-xs-9">

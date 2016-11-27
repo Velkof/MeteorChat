@@ -6,6 +6,7 @@ Template.chat.onCreated(function() {
     });
 });
 
+
 Template.chat.helpers({
     'chatBuddy': function() {
         let chatBuddyId =  FlowRouter.getParam('id');

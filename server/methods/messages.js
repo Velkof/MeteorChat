@@ -9,7 +9,17 @@ Meteor.methods({
             chatBuddyId,
             userId: Meteor.userId(),
             createdAt: date,
-            seenStatus: "Sent",
+            seenStatus: "Not seen",
         });
     },
+    'messages.updateStatusToSeen' (messageId) {
+        Messages.update({_id: messageId}, {$set: {seenStatus:"Seen"}});
+    },
+    'messages.unreadCountPerUser' (chatBuddyId) {
+
+        var ccc222 =  Messages.find({'userId': chatBuddyId, 'chatBuddyId': Meteor.userId(), 'seenStatus': 'Not seen'}).count();
+        console.log(ccc222);
+        return ccc222;
+    },
 });
+
