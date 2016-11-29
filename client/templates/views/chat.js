@@ -1,9 +1,18 @@
 Template.chat.onCreated(function() {
     this.subscribe('users');
     this.subscribe('messages');
+    // this.subscribe('counts');
+
     this.autorun(function(){
 
     });
+
+    let key = Meteor.userId()  + "unseenMessages";
+    let name = FlowRouter.getParam('id');
+    let value = 0;
+
+    Meteor.call('counts.updateOrCreate', key, name, value);
+
 });
 
 

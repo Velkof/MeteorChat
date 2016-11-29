@@ -1,4 +1,4 @@
-// Template.messageSent.onRendered(function () {
-//
-// });
-//
+Template.messageSent.onCreated(function () {
+
+});
+

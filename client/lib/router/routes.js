@@ -1,3 +1,7 @@
+FlowRouter.triggers.enter([recordRoute]);
+FlowRouter.triggers.exit([deleteRoute]);
+
+
 var publicRoutes = FlowRouter.group({
     prefix: '/',
     name: 'public',
@@ -56,3 +60,18 @@ function redirectIfLoggedIn (ctx, redirect) {
         redirect('/dashboard')
     }
 }
+
+function recordRoute() {
+    let path = FlowRouter.current().path;
+    let userId = Meteor.userId();
+    // Meteor.users.update(userId, {$set: {"profile.currentPath": path}});
+
+    Meteor.call('users.updatePath', userId, path);
+};
+
+function deleteRoute() {
+    let path = "";
+    let userId = Meteor.userId();
+
+    Meteor.call('users.updatePath', userId, path);
+};

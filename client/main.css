@@ -9,6 +9,11 @@
     border: 1px solid #e7e7e7;
 }
 
+.numberOfUnread {
+    float:right;
+    font-size: .8em;
+}
+
 .footer {
     position: fixed;
     width: 100%;
@@ -19,13 +24,30 @@
 }
 
 .pushDownBecauseOfNav{
-    height: 55px;
+    height: 51px;
     background-color: white;
 }
 
 .pushUpBecauseOfFooterAndSearch{
     height: 155px;
     background-color: white;
+}
+
+.pushDownBecauseOfChattingWith{
+    height: 25px;
+    background-color: white;
+
+}
+
+.chattingWith {
+    text-align: center;
+    color: #5679c9;
+    /*border-bottom: 1px solid #b2c7e8;*/
+    position: fixed;
+    background-color: white;
+    z-index: 99;
+    width: 100%;
+    padding:5px 0px;
 }
 
 
