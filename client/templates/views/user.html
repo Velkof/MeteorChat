@@ -1,7 +1,11 @@
 <template name="user">
-    <div class="user col-xs-10 col-xs-offset-1">
-        <a class="userLink" href={{pathForUser}}>{{emails.[0].address}} </a>
-        <span class="numberOfUnread">{{counts.value}} </span>
+    <div class="container">
+        <div class="user col-xs-12 col-sm-11">
+                    <a class="userLink" href={{pathForUser}}>
+                        <span class="glyphicon glyphicon-flash {{status}}"></span>
+                            <span>{{emails.[0].address}}</span>
+                        <span class="numberOfUnread">{{counts.value}} </span>
+                    </a>
+        </div>
     </div>
-
 </template>

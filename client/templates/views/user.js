@@ -8,31 +8,15 @@ import { Tracker } from 'meteor/tracker';
 
 
 Template.user.onCreated(function(){
-
-
     var self = this;
 
-    this.subscribe('counts');
+    this.autorun(function(){
+        self.subscribe('counts');
+    });
 
     var chatBuddyId = this.data._id;
-    self.numberOfUnread = new ReactiveVar();
     self.chatBuddyId = new ReactiveVar(chatBuddyId);
-    var key = Meteor.userId() + "unseenMessages";
-
-    Meteor.call("counts.getCountForKey", key, function(error, result){
-            if(error){
-                console.log(error.reason);
-                return;
-            }
-
-            result.forEach(function (doc) {
-
-                console.log(doc.value);
-            });
-        });
 });
-
-
 
 Template.user.helpers({
     pathForUser: function(){
@@ -50,13 +34,18 @@ Template.user.helpers({
         var key = Meteor.userId() + "unseenMessages";
 
         let name =  Template.instance().chatBuddyId.get();
-
-        console.log(name);
         let numberOfUnread =  Counts.findOne({key: key, name: name});
 
         if(numberOfUnread.value > 0) {
             return numberOfUnread;
         }
     },
-
+    'status': function() {
+        if (this.status.idle)
+            return "statusIdle";
+        else if (this.status.online)
+            return "statusOnline";
+        else
+            return "statusOffline";
+    }
 });

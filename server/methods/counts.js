@@ -4,7 +4,6 @@ Meteor.methods({
 
         var findDocument = Counts.findOne({key: key, name: name});
 
-
         if(!findDocument) {
             Counts.insert({
                 key: key,
@@ -22,28 +21,4 @@ Meteor.methods({
 
         }
     },
-    'counts.getCountForKey' (key) {
-        //  var ddd =  Counts.find({key: key}).forEach( function(myDoc) {
-        //      console.log( myDoc.value);
-        //  } );
-        // var fff =  Counts.find({key: key}).count();
-        //
-        // console.log(fff);
-        //
-        // // var ddd = Counts.find({},{'value':1});
-        //
-        // // console.log(ddd);
-        //
-        // return 3;
-        var ddd =  Counts.find({key: key});
-
-
-        // var ddd = Counts.find({},{'value':1});
-
-        // console.log(ddd);
-
-        return ddd;
-
-    },
-
 });

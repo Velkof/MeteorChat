@@ -1,5 +1,5 @@
 FlowRouter.triggers.enter([recordRoute]);
-FlowRouter.triggers.exit([deleteRoute]);
+// FlowRouter.triggers.exit([deleteRoute]);
 
 
 var publicRoutes = FlowRouter.group({
@@ -47,8 +47,6 @@ privateRoutes.route('/:id', {
     }
 });
 
-
-
 function checkLoggedIn (ctx, redirect) {
     if (!Meteor.userId()) {
         redirect('/sign-in')
@@ -64,14 +62,12 @@ function redirectIfLoggedIn (ctx, redirect) {
 function recordRoute() {
     let path = FlowRouter.current().path;
     let userId = Meteor.userId();
-    // Meteor.users.update(userId, {$set: {"profile.currentPath": path}});
-
     Meteor.call('users.updatePath', userId, path);
 };
 
-function deleteRoute() {
-    let path = "";
-    let userId = Meteor.userId();
-
-    Meteor.call('users.updatePath', userId, path);
-};
+// function deleteRoute() {
+//     let path = "";
+//     let userId = Meteor.userId();
+//
+//     Meteor.call('users.updatePath', userId, path);
+// };
