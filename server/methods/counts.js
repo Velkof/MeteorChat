@@ -1,3 +1,5 @@
+
+
 Meteor.methods({
 
     'counts.updateOrCreate' (key, name, value) {
@@ -21,4 +23,7 @@ Meteor.methods({
 
         }
     },
+    'counts.findCountsPerConversation' (key, name) {
+        return  Counts.findOne({key: key, name: name}).value;
+    }
 });

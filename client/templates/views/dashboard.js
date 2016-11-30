@@ -22,20 +22,10 @@ Template.dashboard.onCreated(function() {
 Template.dashboard.helpers({
     'users': function(){
         let userId = Meteor.userId();
-        var users = Meteor.users.find({'_id': {$ne: userId}});
-
-        // Meteor.users.find({ "status.online": true })
-        // users.observeChanges({
-        //     changed: function(id, fields) {
-        //         console.log("id from changed: " + id + "meteor.userid(): " + Meteor.userId());
-        //
-        //         var user = Meteor.users.findOne({'_id': id});
-        //
-        //         if(!user.status.online) {
-        //             Meteor.call('users.updatePath', id, "offline");
-        //         };
-        //     },
-        // });
+        var users = Meteor.users.find({'_id': {$ne: userId}}, {sort: {count:-1}});
+        users.fetch().forEach(function (doc) {
+            console.log(doc);
+        });
         return users;
     },
 });
