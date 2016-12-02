@@ -24,6 +24,13 @@ Meteor.methods({
         }
     },
     'counts.findCountsPerConversation' (key, name) {
-        return  Counts.findOne({key: key, name: name}).value;
+        var count =   Counts.findOne({key: key, name: name});
+
+        if(count) {
+            return count.value;
+        } else {
+            return 0;
+        }
+
     }
 });

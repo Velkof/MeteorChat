@@ -12,6 +12,22 @@ Template.chat.onCreated(function() {
 
     Meteor.call('counts.updateOrCreate', key, name, value);
 
+
+    $("#chatContainer").ready(function() {
+        chatScrollDown();
+    });
+
+    $("#sendMessageBtn").on("click", function () {
+        chatScrollDown();
+    });
+
+    function chatScrollDown(){
+        $("body,html").animate({ scrollTop: $(document).height()});
+    };
+
+    $('body,html').on("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove", function(){
+        $('body,html').stop();
+    });
 });
 
 
@@ -21,7 +37,6 @@ Template.chat.helpers({
         return Meteor.users.findOne({_id: chatBuddyId});
     },
     'messages': function(){
-
         let chatBuddyId =  FlowRouter.getParam('id');
 
         return Messages.find({$or:[
@@ -37,17 +52,11 @@ Template.chat.helpers({
 Template.chat.events({
    'submit .messageForm': function(event){
        event.preventDefault();
-
        const target = event.target;
-
        const message = target.message.value;
-
        let chatBuddyId =  FlowRouter.getParam('id');
-
        Meteor.call('messages.insert', message, chatBuddyId);
-
        target.message.value = "";
-
    },
 });
 

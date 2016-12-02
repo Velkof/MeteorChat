@@ -1,13 +1,13 @@
 <template name="user">
     <div class="container">
         <div class="user col-xs-12 col-sm-11">
-                    <a class="userLink" href={{pathForUser}}>
-                        <span class="glyphicon glyphicon-flash {{status}}"></span>
-                            <span>{{emails.[0].address}}{{count}}</span>
-                            <span></span>
+            <a class="userLink" href={{pathForUser}}>
+                <span class="glyphicon glyphicon-flash {{status}}"></span>
+                <span>{{emails.[0].address}}</span>
+                <span></span>
 
-                        <span class="numberOfUnread">{{counts.value}} </span>
-                    </a>
+                <span class="numberOfUnread">{{counts.value}} </span>
+            </a>
         </div>
     </div>
 </template>
